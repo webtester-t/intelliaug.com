@@ -1,0 +1,2723 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My School Website</title>
+
+     <!-- Favicon -->
+    <link rel="icon" href="images/school-logo.jpg" type="image/png">
+
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- AOS CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Owl Carousel -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.theme.min.css">
+
+    <style>
+        :root {
+            --primary: #1a3a5c;
+            --primary-dark: #0f2640;
+            --green: #8dc356;
+            --green-dark: #7ab345;
+            --green-light: #a8d97a;
+            --white: #ffffff;
+            --light-bg: #f8faf6;
+            --text-dark: #1a1a2e;
+            --text-gray: #555;
+            --border-light: #e0e0e0;
+            --shadow-sm: 0 2px 10px rgba(0, 0, 0, 0.06);
+            --shadow-md: 0 5px 25px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 40px rgba(0, 0, 0, 0.15);
+            --radius: 12px;
+            --radius-sm: 8px;
+            --transition: 0.3s ease;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            color: var(--text-dark);
+            background: #fff;
+            overflow-x: hidden;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .clear {
+            clear: both;
+        }
+
+        .header-space {
+            height: 85px;
+        }
+        @media(max-width:991px) {
+            .header-space {
+                height: 60px;
+            }
+        }
+
+        /* ========== GLOBAL BUTTON ========== */
+        .global-btn a {
+            display: inline-block;
+            padding: 12px 26px;
+            background: var(--green);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: var(--transition);
+            letter-spacing: 0.3px;
+        }
+        .global-btn a:hover {
+            background: var(--green-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(141, 195, 86, 0.35);
+            color: #fff;
+        }
+        .global-btn a i {
+            margin-left: 6px;
+            transition: var(--transition);
+        }
+        .global-btn a:hover i {
+            transform: translateX(3px);
+        }
+
+        /* ========== DESKTOP HEADER ========== */
+        .elite-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 9999;
+            background: #fff;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+        .elite-header .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 20px;
+            height: 80px;
+        }
+        .elite-header .logo img {
+            height: 65px;
+            width: auto;
+        }
+        .elite-header .menu {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .elite-header .menu>li {
+            position: relative;
+        }
+        .elite-header .menu>li>a {
+            display: block;
+            padding: 10px 14px;
+            text-decoration: none;
+            color: #333;
+            font-weight: 600;
+            font-size: 0.9rem;
+            border-radius: 6px;
+            transition: var(--transition);
+            white-space: nowrap;
+        }
+        .elite-header .menu>li>a:hover {
+            color: var(--green);
+            background: #f0f7e8;
+        }
+        .elite-header .drop .panel {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: #fff;
+            min-width: 200px;
+            border-radius: var(--radius-sm);
+            box-shadow: var(--shadow-lg);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.25s ease;
+            padding: 10px 0;
+            z-index: 100;
+        }
+        .elite-header .drop:hover .panel {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        .elite-header .drop .panel.wide {
+            display: flex;
+            min-width: 600px;
+            padding: 16px;
+            gap: 16px;
+        }
+        .elite-header .drop .panel.wide>div {
+            flex: 1;
+            min-width: 120px;
+        }
+        .elite-header .drop .panel h5 {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            color: var(--green);
+            margin: 0 0 6px;
+            letter-spacing: 0.5px;
+            font-weight: 700;
+        }
+        .elite-header .drop .panel a {
+            display: block;
+            padding: 7px 16px;
+            text-decoration: none;
+            color: #444;
+            font-size: 0.88rem;
+            transition: var(--transition);
+            border-radius: 4px;
+        }
+        .elite-header .drop .panel a:hover {
+            background: #f0f7e8;
+            color: var(--green);
+        }
+
+        @media(max-width:1080px) {
+            .elite-header {
+                display: none;
+            }
+        }
+
+        /* ========== MOBILE HEADER ========== */
+        .mobile-header {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 9999;
+            background: #fff;
+            box-shadow: var(--shadow-sm);
+        }
+        @media(max-width:1080px) {
+            .mobile-header {
+                display: block;
+            }
+        }
+        .mobile-header .m-header-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 8px 16px;
+            height: 58px;
+        }
+        .mobile-header .m-logo img {
+            height: 40px;
+        }
+        .hamburger {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 8px;
+            z-index: 10001;
+        }
+        .hamburger span {
+            display: block;
+            width: 26px;
+            height: 3px;
+            background: #333;
+            border-radius: 2px;
+            transition: var(--transition);
+        }
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 6px);
+        }
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -6px);
+        }
+        .mobile-menu {
+            display: none;
+            background: #fff;
+            max-height: 75vh;
+            overflow-y: auto;
+            border-top: 1px solid #eee;
+            box-shadow: var(--shadow-md);
+        }
+        .mobile-menu.open {
+            display: block;
+        }
+        .mobile-menu ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        .mobile-menu>ul>li {
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .mobile-menu>ul>li>a {
+            display: block;
+            padding: 14px 20px;
+            text-decoration: none;
+            color: #333;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+        .mobile-menu .m-dropdown {
+            position: relative;
+        }
+        .mobile-menu .m-dropdown>a {
+            display: inline-block;
+            width: calc(100% - 50px);
+            vertical-align: middle;
+        }
+        .mobile-menu .drop-toggle,
+        .mobile-menu .sub-drop-toggle {
+            display: inline-block;
+            width: 44px;
+            text-align: center;
+            font-size: 1.2rem;
+            font-weight: 700;
+            cursor: pointer;
+            padding: 14px 0;
+            color: var(--green);
+            user-select: none;
+            vertical-align: middle;
+        }
+        .mobile-menu .m-submenu,
+        .mobile-menu .m-submenu-inner {
+            display: none;
+            background: #fafafa;
+            padding-left: 16px;
+        }
+        .mobile-menu .m-dropdown.open>.m-submenu,
+        .mobile-menu .m-sub-dropdown.open>.m-submenu-inner {
+            display: block;
+        }
+        .mobile-menu .m-submenu li a,
+        .mobile-menu .m-submenu-inner li a {
+            display: block;
+            padding: 10px 20px;
+            text-decoration: none;
+            color: #555;
+            font-size: 0.9rem;
+        }
+
+        /* ========== BANNER ========== */
+        .banner-section {
+            position: relative;
+        }
+        .banner-section .carousel-item img {
+            width: 100%;
+            height: 85vh;
+            object-fit: cover;
+        }
+        @media(max-width:768px) {
+            .banner-section .carousel-item img {
+                height: 55vh;
+            }
+        }
+        .banner-section .carousel-caption {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            width: 90%;
+            max-width: 800px;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+        }
+        .banner-section .ban-mini h1 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+        .banner-section .ban-mini h1 span {
+            color: #ffd700;
+        }
+        .banner-section .ban-mini h3 {
+            font-size: 1.4rem;
+            color: #e0e0e0;
+            font-weight: 400;
+            margin-bottom: 8px;
+        }
+        .banner-section .ban-mini h4 {
+            font-size: 1.1rem;
+            color: #ccc;
+            font-weight: 400;
+            margin-bottom: 18px;
+        }
+        .banner-section .ban-mini .line {
+            width: 60px;
+            height: 3px;
+            background: var(--green);
+            margin: 14px auto;
+            border-radius: 2px;
+        }
+        @media(max-width:768px) {
+            .banner-section .ban-mini h1 {
+                font-size: 1.5rem;
+            }
+            .banner-section .ban-mini h3 {
+                font-size: 1rem;
+            }
+        }
+        .banner-btn {
+            position: absolute;
+            bottom: 24px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+            animation: bounceDown 2s infinite;
+        }
+        .banner-btn img {
+            width: 36px;
+            opacity: 0.8;
+        }
+        @keyframes bounceDown {
+            0%,
+            100% {
+                transform: translateX(-50%) translateY(0);
+            }
+            50% {
+                transform: translateX(-50%) translateY(10px);
+            }
+        }
+        .carousel-control-prev,
+        .carousel-control-next {
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.25);
+            border-radius: 50%;
+            top: 50%;
+            transform: translateY(-50%);
+            opacity: 0.8;
+            transition: var(--transition);
+        }
+        .carousel-control-prev:hover,
+        .carousel-control-next:hover {
+            background: rgba(255, 255, 255, 0.5);
+            opacity: 1;
+        }
+
+        /* ========== ABOUT ========== */
+        .about {
+            padding: 70px 0 50px;
+            background: #fff;
+        }
+        .about .container-fluid {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .about-1 {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .about-logo {
+            width: 80px;
+            height: 80px;
+            background: var(--green);
+            border-radius: 50%;
+            margin: 0 auto 16px;
+            position: relative;
+        }
+        .about-logo::after {
+            content: '🎓';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 2rem;
+        }
+        .about-1 .cnt h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        .about-1 .cnt p {
+            max-width: 700px;
+            margin: 0 auto 18px;
+            color: var(--text-gray);
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+        .about-2 {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .about-2 .left {
+            flex: 1;
+            min-width: 280px;
+        }
+        .about-2 .left h6 {
+            color: var(--green);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.85rem;
+            margin-bottom: 4px;
+        }
+        .about-2 .left h2 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        .about-2 .left p {
+            color: var(--text-gray);
+            margin-bottom: 16px;
+            line-height: 1.7;
+        }
+        .about-2 .right {
+            flex: 1;
+            min-width: 300px;
+        }
+        .about-2 .right .grid {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+        .about-2 .right .grid-item {
+            flex: 1;
+            border-radius: var(--radius-sm);
+            overflow: hidden;
+        }
+        .about-2 .right .grid-item img {
+            width: 100%;
+            height: 140px;
+            object-fit: cover;
+            border-radius: var(--radius-sm);
+            transition: var(--transition);
+        }
+        .about-2 .right .grid-item img:hover {
+            transform: scale(1.03);
+        }
+
+        /* ========== TOPPERS ========== */
+        .heading {
+            text-align: center;
+            padding: 30px 20px 10px;
+        }
+        .heading h2 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+        }
+        .heading h2::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background: var(--green);
+            margin: 8px auto 0;
+            border-radius: 2px;
+        }
+        .header {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            padding: 10px 20px 20px;
+        }
+        .topper {
+            text-align: center;
+            background: #fff;
+            border-radius: var(--radius);
+            padding: 20px;
+            box-shadow: var(--shadow-md);
+            width: 180px;
+            transition: var(--transition);
+        }
+        .topper:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+        .topper img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--green-light);
+            margin-bottom: 10px;
+        }
+        .topper h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin: 0;
+        }
+
+        /* ========== STUDENT SCROLL ========== */
+        .scroll-container {
+            position: relative;
+            max-width: 1100px;
+            margin: 20px auto 40px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 0 10px;
+        }
+        .student-scroll-wrapper {
+            overflow-x: hidden;
+            flex: 1;
+            cursor: grab;
+        }
+        .student-scroll-track {
+            display: flex;
+            gap: 16px;
+            width: max-content;
+        }
+        .student-card {
+            min-width: 150px;
+            background: #fff;
+            border-radius: var(--radius-sm);
+            box-shadow: var(--shadow-sm);
+            text-align: center;
+            padding: 16px;
+            transition: var(--transition);
+            flex-shrink: 0;
+        }
+        .student-card:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-3px);
+        }
+        .student-card img {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--green-light);
+            margin-bottom: 8px;
+        }
+        .student-card h3 {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin: 0 0 4px;
+        }
+        .student-card p {
+            font-size: 0.85rem;
+            color: var(--green);
+            font-weight: 700;
+            margin: 0;
+        }
+        .scroll-btn {
+            background: var(--green);
+            color: #fff;
+            border: none;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 700;
+            transition: var(--transition);
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .scroll-btn:hover {
+            background: var(--green-dark);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* ========== ACADEMICS ========== */
+        .academics {
+            padding: 60px 0;
+            background: var(--light-bg);
+        }
+        .academics .container-fluid {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .acadmemics-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .acadmemics-title h3 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+        }
+        .acadmemics-title h3::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background: var(--green);
+            margin: 8px auto 0;
+            border-radius: 2px;
+        }
+        .academics .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 24px;
+        }
+        .academics .grid .div {
+            background: #fff;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            position: relative;
+        }
+        .academics .grid .div:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-4px);
+        }
+        .academics .grid .div .icon {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            z-index: 2;
+            width: 50px;
+            height: 50px;
+        }
+        .academics .grid .div .icon img {
+            width: 32px;
+            height: 32px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 3;
+        }
+        .academics .grid .div .icon svg {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+        .academics .grid .div .icon .shape-one {
+            top: 0;
+            right: 0;
+        }
+        .academics .grid .div .icon .shape-two {
+            bottom: 0;
+            left: 0;
+        }
+        .academics .grid .div .image img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .academics .grid .div .cnt {
+            padding: 18px;
+        }
+        .academics .grid .div .cnt h2 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+        .academics .grid .div .cnt p {
+            font-size: 0.9rem;
+            color: var(--text-gray);
+            line-height: 1.6;
+            margin-bottom: 14px;
+        }
+
+        /* ========== NEWS & EVENTS ========== */
+        .news-and-events {
+            padding: 60px 0;
+            background: #fff;
+        }
+        .news-and-events .container-fluid {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .news-and-events h2 {
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 30px;
+        }
+        .news-and-events h2 span {
+            color: var(--green);
+        }
+        .news-and-events .row {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+        .news-and-events .left {
+            flex: 1;
+            min-width: 300px;
+        }
+        .news-and-events .right {
+            flex: 1;
+            min-width: 350px;
+        }
+        .news-marquee {
+            height: 370px;
+            overflow: hidden;
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--border-light);
+        }
+        .news-track {
+            transition: none;
+        }
+        .news-list {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 14px 16px;
+            border-bottom: 1px solid #f0f0f0;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        .news-list:hover {
+            background: #f9fdf5;
+        }
+        .news-list a {
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            width: 100%;
+        }
+        .date-tab {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            min-width: 80px;
+        }
+        .date-tab .date h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--green);
+            margin: 0;
+            line-height: 1;
+        }
+        .date-tab .date h3 sup {
+            font-size: 0.7rem;
+            top: -6px;
+        }
+        .date-tab .month-year h5 {
+            font-size: 0.8rem;
+            color: #777;
+            margin: 0;
+            line-height: 1.3;
+        }
+        .new-name p {
+            margin: 0;
+            font-weight: 500;
+            color: #333;
+            font-size: 0.95rem;
+        }
+        .events-main .case-studies {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .events-main .cs-image {
+            position: relative;
+            border-radius: var(--radius);
+            overflow: hidden;
+        }
+        .events-main .cs-image img {
+            width: 100%;
+            height: 370px;
+            object-fit: cover;
+            border-radius: var(--radius);
+        }
+        .event-cnt {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.75));
+            padding: 30px 20px 18px;
+            color: #fff;
+            border-radius: 0 0 var(--radius) var(--radius);
+        }
+        .event-cnt h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin: 0 0 6px;
+        }
+        .event-cnt .hover-text p {
+            font-size: 0.85rem;
+            opacity: 0.9;
+            margin: 0;
+        }
+        .owl-buttons {
+            text-align: center;
+            margin-top: 10px;
+        }
+        .owl-buttons div {
+            display: inline-block;
+            width: 36px;
+            height: 36px;
+            background: var(--green);
+            color: #fff;
+            border-radius: 50%;
+            line-height: 36px;
+            margin: 0 4px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+        .owl-buttons div:hover {
+            background: var(--green-dark);
+        }
+
+        /* ========== CAMPUS ========== */
+        .campus {
+            padding: 60px 0;
+            background: var(--light-bg);
+            position: relative;
+            overflow: hidden;
+        }
+        .campus .container-fluid {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .campus .row {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+            align-items: flex-start;
+        }
+        .campus .left {
+            flex: 0 0 280px;
+            min-width: 250px;
+        }
+        .campus .left .main h4 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        .campus .left .main h4 span {
+            color: var(--green);
+            display: block;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 4px;
+        }
+        .campus .left .grid .div {
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+            margin-top: 16px;
+        }
+        .campus .left .grid .d-div .image img {
+            width: 50px;
+        }
+        .campus .left .grid .d-div h3 {
+            font-size: 0.95rem;
+            color: #555;
+            font-weight: 500;
+            line-height: 1.5;
+        }
+        .campus .right {
+            flex: 1;
+            min-width: 350px;
+            position: relative;
+        }
+        .campus-student {
+            position: absolute;
+            right: -20px;
+            bottom: -40px;
+            width: 180px;
+            z-index: 2;
+            pointer-events: none;
+        }
+        .campus-shape {
+            position: absolute;
+            top: -30px;
+            right: -20px;
+            width: 120px;
+            z-index: 1;
+            pointer-events: none;
+        }
+        @media(max-width:768px) {
+            .campus-student,
+            .campus-shape {
+                display: none;
+            }
+        }
+        .campus-main .case-studies {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .campus-main .seltext .cnt {
+            background: #fff;
+            border-radius: var(--radius);
+            padding: 24px;
+            box-shadow: var(--shadow-md);
+            position: relative;
+        }
+        .campus-main .cnt .line {
+            width: 40px;
+            height: 3px;
+            background: var(--green);
+            margin-bottom: 16px;
+            border-radius: 2px;
+        }
+        .campus-main .cnt .content {
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+            flex-wrap: wrap;
+        }
+        .campus-main .cnt .content .image img {
+            width: 55px;
+        }
+        .campus-main .cnt .content .text h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 6px;
+        }
+        .campus-main .cnt .content .text p {
+            font-size: 0.9rem;
+            color: var(--text-gray);
+            line-height: 1.6;
+            margin-bottom: 12px;
+        }
+        .campus-main .cnt .circle {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            width: 60px;
+            height: 60px;
+        }
+        .campus-main .cnt .circle svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        /* ========== GALLERY ========== */
+        .gallery-bg {
+            padding: 60px 20px;
+            background: #fff;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .gallery-bg h6 {
+            color: var(--green);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.85rem;
+            margin: 0;
+        }
+        .gallery-bg h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 30px;
+        }
+        .gallery-shapes img {
+            position: absolute;
+            pointer-events: none;
+            opacity: 0.5;
+        }
+        .gallery-shape-1 {
+            top: 20px;
+            left: 5%;
+            width: 60px;
+        }
+        .gallery-shape-2 {
+            bottom: 20px;
+            right: 8%;
+            width: 50px;
+        }
+        .gallery-shape-3 {
+            top: 40%;
+            left: 50%;
+            width: 40px;
+        }
+        .nx-main {
+            display: flex;
+            gap: 10px;
+            max-width: 1100px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .nx-col {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            flex: 1;
+            min-width: 160px;
+            max-width: 200px;
+        }
+        .nx-item {
+            position: relative;
+            border-radius: var(--radius-sm);
+            overflow: hidden;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        .nx-item:hover {
+            transform: scale(1.03);
+            box-shadow: var(--shadow-md);
+        }
+        .nx-item img,
+        .nx-item video {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            display: block;
+        }
+        .nx-item.tall img {
+            height: 330px;
+        }
+        .nx-play {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 36px;
+            height: 36px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 50%;
+            pointer-events: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .nx-play::after {
+            content: '';
+            display: block;
+            width: 0;
+            height: 0;
+            border-left: 10px solid var(--green);
+            border-top: 7px solid transparent;
+            border-bottom: 7px solid transparent;
+            margin-left: 3px;
+        }
+        .nx-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 99999;
+            display: none;
+            align-items: center;
+            justify-content: center;
+        }
+        .nx-modal.active {
+            display: flex;
+        }
+        .nx-modal .nx-content {
+            max-width: 90%;
+            max-height: 85vh;
+        }
+        .nx-modal .nx-content img,
+        .nx-modal .nx-content video {
+            max-width: 100%;
+            max-height: 85vh;
+            border-radius: var(--radius-sm);
+        }
+        .nx-close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 2rem;
+            color: #fff;
+            cursor: pointer;
+            z-index: 5;
+        }
+        .nx-prev,
+        .nx-next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2rem;
+            color: #fff;
+            cursor: pointer;
+            padding: 10px;
+            user-select: none;
+        }
+        .nx-prev {
+            left: 20px;
+        }
+        .nx-next {
+            right: 20px;
+        }
+
+        /* ========== ADMISSION ========== */
+        .admission {
+            padding: 50px 0;
+            background: linear-gradient(135deg, #1a3a5c 0%, #0f2640 100%);
+            color: #fff;
+            position: relative;
+            overflow: hidden;
+        }
+        .admission-shape {
+            position: absolute;
+            top: -30px;
+            right: -30px;
+            opacity: 0.15;
+            pointer-events: none;
+        }
+        .admission-shape img {
+            width: 200px;
+        }
+        .admission .container-fluid {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 2;
+        }
+        .admission .cnt-grid {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+        .admission .cnt-div {
+            flex: 1;
+            min-width: 280px;
+        }
+        .admission .cnt-div .text .line {
+            width: 50px;
+            height: 3px;
+            background: var(--green);
+            margin-bottom: 14px;
+            border-radius: 2px;
+        }
+        .admission .cnt-div .text h2 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        .admission .cnt-div .text p {
+            font-size: 1rem;
+            opacity: 0.9;
+            margin-bottom: 18px;
+        }
+        .admission .cnt-div img {
+            width: 100%;
+            max-width: 350px;
+            border-radius: var(--radius);
+        }
+
+        /* ========== FOOTER ========== */
+        .footer {
+            background: #0d1f30;
+            color: #ccc;
+            padding: 40px 0 0;
+            position: relative;
+        }
+        .footer .animations-02 {
+            position: absolute;
+            bottom: 0;
+            right: 20px;
+            opacity: 0.08;
+            pointer-events: none;
+        }
+        .footer .animations-02 img {
+            width: 200px;
+        }
+        .footer .container-fluid {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 1;
+        }
+        .footer-top {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+        .footer-div {
+            flex: 1;
+            min-width: 220px;
+            margin-bottom: 20px;
+        }
+        .footer-div h2 {
+            color: #fff;
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 14px;
+            position: relative;
+            padding-bottom: 8px;
+        }
+        .footer-div h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 30px;
+            height: 2px;
+            background: var(--green);
+            border-radius: 1px;
+        }
+        .footer-div ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .footer-div ul li {
+            margin-bottom: 6px;
+        }
+        .footer-div ul li a {
+            color: #bbb;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+        .footer-div ul li a:hover {
+            color: var(--green-light);
+        }
+        .footer-adress .adrres-d {
+            margin-bottom: 12px;
+        }
+        .footer-adress .adrres-d h4 {
+            font-size: 0.95rem;
+            color: #fff;
+            margin: 0 0 4px;
+        }
+        .footer-adress .adrres-d h4 i {
+            margin-right: 6px;
+            color: var(--green);
+        }
+        .footer-adress .adrres-d h3 {
+            font-size: 0.85rem;
+            color: var(--green-light);
+            margin: 0 0 2px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .footer-adress .adrres-d p {
+            margin: 0;
+            font-size: 0.88rem;
+            color: #bbb;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            flex-wrap: wrap;
+        }
+        .footer-adress .adrres-d p a {
+            color: #bbb;
+            text-decoration: none;
+        }
+        .footer-adress .adrres-d p a:hover {
+            color: #fff;
+        }
+        .footer-adress .adrres-d .time span {
+            font-weight: 600;
+            color: #fff;
+        }
+        .footer-div .soc ul {
+            display: flex;
+            gap: 10px;
+            padding: 0;
+            list-style: none;
+        }
+        .footer-div .soc ul li a img {
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            transition: var(--transition);
+            background: rgba(255, 255, 255, 0.1);
+            padding: 6px;
+        }
+        .footer-div .soc ul li a img:hover {
+            background: var(--green);
+            transform: scale(1.1);
+        }
+        .footer-div .soc h3 {
+            color: #fff;
+            font-size: 1rem;
+            margin-bottom: 10px;
+        }
+        .footer-bottom {
+            text-align: center;
+            padding: 16px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 10px;
+        }
+        .footer-bottom p {
+            margin: 0;
+            font-size: 0.85rem;
+            color: #999;
+        }
+        .footer-bottom p span {
+            color: #fff;
+            font-weight: 600;
+        }
+        .footer-bottom p a {
+            color: var(--green-light);
+            text-decoration: none;
+        }
+
+        /* ========== WHATSAPP ICON ========== */
+        .waicon {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            width: 50px;
+            height: 50px;
+            background: #25D366;
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            z-index: 9998;
+            box-shadow: 0 4px 16px rgba(37, 211, 102, 0.4);
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+        .waicon:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 22px rgba(37, 211, 102, 0.55);
+            color: #fff;
+        }
+
+        /* ========== POPUP ========== */
+        .popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 99999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .popup-box {
+            position: relative;
+            max-width: 600px;
+            width: 90%;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+        }
+        .popup-box img {
+            width: 100%;
+            display: block;
+        }
+        .popup-close {
+            position: absolute;
+            top: 8px;
+            right: 12px;
+            width: 32px;
+            height: 32px;
+            background: rgba(0, 0, 0, 0.6);
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            font-size: 1.3rem;
+            cursor: pointer;
+            z-index: 5;
+            line-height: 1;
+            transition: var(--transition);
+        }
+        .popup-close:hover {
+            background: rgba(0, 0, 0, 0.9);
+        }
+
+        /* ========== RESPONSIVE ========== */
+        @media(max-width:768px) {
+            .about-2 {
+                flex-direction: column;
+            }
+            .news-and-events .row {
+                flex-direction: column;
+            }
+            .campus .row {
+                flex-direction: column;
+            }
+            .campus .left {
+                flex: auto;
+                width: 100%;
+            }
+            .footer-top {
+                flex-direction: column;
+            }
+            .banner-section .ban-mini h1 {
+                font-size: 1.4rem;
+            }
+            .banner-section .ban-mini h3 {
+                font-size: 0.9rem;
+            }
+            .nx-col {
+                max-width: 150px;
+                min-width: 120px;
+            }
+            .nx-item img,
+            .nx-item video {
+                height: 120px;
+            }
+        }
+        @media(max-width:480px) {
+            .elite-header {
+                display: none;
+            }
+            .mobile-header {
+                display: block;
+            }
+            .header-space {
+                height: 58px;
+            }
+            .banner-section .carousel-item img {
+                height: 40vh;
+            }
+            .banner-section .ban-mini h1 {
+                font-size: 1.1rem;
+            }
+            .academics .grid {
+                grid-template-columns: 1fr;
+            }
+            .nx-col {
+                max-width: 100px;
+                min-width: 80px;
+            }
+            .nx-item img,
+            .nx-item video {
+                height: 90px;
+            }
+            .topper {
+                width: 140px;
+                padding: 12px;
+            }
+            .topper img {
+                width: 70px;
+                height: 70px;
+            }
+        }
+    </style>
+</head>
+<body data-aos-easing="ease" data-aos-duration="1000" data-aos-delay="0">
+
+    <!-- ==================== HEADER ==================== -->
+    <!-- DESKTOP HEADER -->
+    <header class="elite-header elite-nav">
+        <div class="nav">
+            <div class="logo">
+                <a href="#">
+                    <img src="images/school-logo.jpg" alt="Public School" title="My School"><img src="https://placehold.co/180x55/ffffff/1a3a5c?text=GROUP+SCHOOL" alt="Group School" title="Group School">
+                </a>
+            </div>
+            <ul class="menu">
+                <li><a href="#">Home</a></li>
+                <li class="drop">
+                    <a href="#">About</a>
+                    <div class="panel">
+                        <a href="#">About School</a>
+                        <a href="#">Principal's Message</a>
+                        <a href="#">Director's Message</a>
+                        <a href="#">First Batch</a>
+                        <a href="#">School Information</a>
+                        <a href="#">Staff</a>
+                    </div>
+                </li>
+                <li class="drop">
+                    <a href="#">Academics</a>
+                    <div class="panel wide">
+                        <div>
+                            <h5>Montessori</h5>
+                            <a href="#">Pre-Nursery - UKG</a>
+                        </div>
+                        <div>
+                            <h5>Lower Primary</h5>
+                            <a href="#">I – IV</a>
+                        </div>
+                        <div>
+                            <h5>Higher Primary</h5>
+                            <a href="#">V – VII</a>
+                        </div>
+                        <div>
+                            <h5>High School</h5>
+                            <a href="#">VIII – X</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="drop">
+                    <a href="#">Campus</a>
+                    <div class="panel wide">
+                        <div>
+                            <a href="#">Day Care</a>
+                            <a href="#">Classroom</a>
+                            <a href="#">Labs</a>
+                        </div>
+                        <div>
+                            <a href="#">Sports</a>
+                            <a href="#">Library</a>
+                            <a href="#">Transport</a>
+                        </div>
+                        <div>
+                            <a href="#">CCTV Surveillance</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="drop">
+                    <a href="#">Student Life</a>
+                    <div class="panel wide">
+                        <div>
+                            <h5>Curricular</h5>
+                            <a href="#">Curricular</a>
+                        </div>
+                        <div>
+                            <h5>Extra Curricular</h5>
+                            <a href="#">Abacus</a>
+                            <a href="#">Handwriting</a>
+                            <a href="#">Smart Class</a>
+                            <a href="#">General Knowledge</a>
+                            <a href="#">Karate</a>
+                        </div>
+                    </div>
+                </li>
+
+                <li class="drop">
+                    <a href="#">Admissions</a>
+                    <div class="panel">
+                        <a href="#">Admission Procedure</a>
+                        <a href="#">Fee Structure</a>
+                        <a href="#">Offers</a>
+                        <a href="#">Book List</a>
+
+                    </div>
+                </li>
+                
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#">Careers</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- MOBILE HEADER -->
+    <header class="mobile-header">
+        <div class="m-header-top">
+            <a href="#" class="m-logo">
+                <img src="images/school-logo.jpg" alt="Public School" title="My School"><img src="https://placehold.co/140x40/ffffff/1a3a5c?text=GROUP+SCHOOL" alt="Group School" title="Group School">
+            </a>
+            <div id="mobileMenuBtn" class="hamburger">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <nav class="mobile-menu" id="mobileMenu">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li class="m-dropdown">
+                    <a href="#" class="color">About Us</a>
+                    <span class="drop-toggle">+</span>
+                    <ul class="m-submenu">
+
+                       <li><a href="#">About School</a></li>
+                       <li><a href="#">Principal's Message</a></li>
+                       <li><a href="#">Director's Message</a></li>
+                       <li><a href="#">First Batch</a></li>
+                       <li><a href="#">School Information</a></li>
+                       <li><a href="#">Staff</a></li>
+
+                    </ul>
+                </li>
+                <li class="m-dropdown">
+                    <a href="#" class="color">Academics</a>
+                    <span class="drop-toggle">+</span>
+                    <ul class="m-submenu">
+                        <li><a href="#">Montessori (Pre-Nursery - UKG)</a></li>
+                        <li><a href="#">Lower Primary (I – IV)</a></li>
+                        <li><a href="#">Higher Primary (V – VII)</a></li>
+                        <li><a href="#">High School (VIII – X)</a></li>
+                    </ul>
+                </li>
+                <li class="m-dropdown">
+                    <a href="#" class="color">Campus</a>
+                    <span class="drop-toggle">+</span>
+                    <ul class="m-submenu">
+                        <li><a href="#">Day Care</a></li>
+                        <li><a href="#">Classroom</a></li>
+                        <li><a href="#">Labs</a></li>
+                        <li><a href="#">Sports</a></li>
+                        <li><a href="#">Library</a></li>
+                        <li><a href="#">Transport</a></li>
+                        <li><a href="#">CCTV Surveillance</a></li>
+                    </ul>
+                </li>
+                <li class="m-dropdown">
+                    <a href="#">Student Life</a>
+                    <span class="drop-toggle">+</span>
+                    <ul class="m-submenu">
+                        <li class="m-sub-dropdown">
+                            <a href="#">Curricular</a>
+                            <span class="sub-drop-toggle">+</span>
+                            <ul class="m-submenu-inner">
+                                <li><a href="#">Curricular</a></li>
+                            </ul>
+                        </li>
+                        <li class="m-sub-dropdown">
+                            <a href="#">Extra Curricular</a>
+                            <span class="sub-drop-toggle">+</span>
+                            <ul class="m-submenu-inner">
+                                <li><a href="#">Abacus</a></li>
+                                <li><a href="#">Handwriting</a></li>
+                                <li><a href="#">Smart Class</a></li>
+                                <li><a href="#">General Knowledge</a></li>
+                                <li><a href="#">Karate</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="m-dropdown">
+                    <a href="#" class="color">Admissions</a>
+                    <span class="drop-toggle">+</span>
+                    <ul class="m-submenu">
+
+                       <li><a href="#">Admission Procedure</a></li>
+                       <li><a href="#">Fee Structure</a></li>
+                       <li><a href="#">Offers</a></li>
+                       <li><a href="#">Book List</a></li>
+                    </ul>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#">Careers</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="clear"></div>
+    <div class="header-space"></div>
+
+    <!-- ==================== BANNER ==================== -->
+    <section class="banner-section">
+        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="images/slide-1.jpg" class="d-block w-100" alt="Banner">
+                    <div class="carousel-caption d-md-block">
+                        <div class="ban-mini">
+                            <h1><span>Admissions Open</span> For The Academic Year 2026-2027</h1>
+                            <h3>Montessori - High School</h3>
+                            <h4>Your excellence starts here</h4>
+                            <div class="global-btn">
+                                <a href="#">Book your Admissions <i class="fa fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="images/slide-2.jpg" class="d-block w-100" alt="Banner">
+                    <div class="carousel-caption d-md-block">
+                        <div class="ban-mini">
+                            <h1><span>Empowering Young Minds</span> for a Better Tomorrow</h1>
+                            <div class="line"></div>
+                            <div class="global-btn">
+                                <a href="#">Know More <i class="fa fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="images/slide-3.jpg" class="d-block w-100" alt="Banner">
+                    <div class="carousel-caption d-md-block">
+                        <div class="ban-mini">
+                            <h1><span>Shaping Confident</span> Leaders for Future Success</h1>
+                            <div class="line"></div>
+                            <div class="global-btn">
+                                <a href="#">Know More <i class="fa fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="images/slide-4.jpg" class="d-block w-100" alt="Banner">
+                    <div class="carousel-caption d-md-block">
+                        <div class="ban-mini">
+                            <h1><span>Growing Minds</span> Inspiring Futures Every Day</h1>
+                            <div class="line"></div>
+                            <div class="global-btn">
+                                <a href="#">Know More <i class="fa fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="images/slide-5.jpg" class="d-block w-100" alt="Banner">
+                    <div class="carousel-caption d-md-block">
+                        <div class="ban-mini">
+                            <h1><span>Building Strength & Team Spirit</span> Through Sports Excellence</h1>
+                            <div class="line"></div>
+                            <div class="global-btn">
+                                <a href="#">Know More <i class="fa fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="images/slide-6.jpg" class="d-block w-100" alt="Banner">
+                    <div class="carousel-caption d-md-block">
+                        <div class="ban-mini">
+                            <h1><span>Innovating Through Experiments</span> Discover, Learn & Create</h1>
+                            <div class="line"></div>
+                            <div class="global-btn">
+                                <a href="#">Know More <i class="fa fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="images/slide-7.jpg" class="d-block w-100" alt="Banner">
+                    <div class="carousel-caption d-md-block">
+                        <div class="ban-mini">
+                            <h1><span>Explore the World of Knowledge</span> Where Learning Never Ends</h1>
+                            <div class="line"></div>
+                            <div class="global-btn">
+                                <a href="#">Know More <i class="fa fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+        <div class="banner-btn">
+            <a href="#down">
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 24 24' fill='white' opacity='0.8'%3E%3Cpath d='M12 16l-6-6h4V4h4v6h4z'/%3E%3Crect x='10' y='18' width='4' height='3' rx='1'/%3E%3C/svg%3E" alt="Scroll Down" title="Scroll Down">
+            </a>
+        </div>
+    </section>
+
+    <div class="clear"></div>
+    <div id="down"></div>
+
+    <!-- ==================== ABOUT ==================== -->
+    <section class="about">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="about-1">
+                    <div class="about-logo"></div>
+                    <div class="cnt">
+                        <h2>Welcome to<br>ABC Public School</h2>
+                        <p>
+                            At ABC Public School, we are committed to inspiring young learners through a balanced approach to education. Our focus is on developing knowledge, character, and confidence in every student. We strive to create a positive and engaging environment
+                            where children are encouraged to explore their talents, build strong values, and grow into responsible, thoughtful, and capable individuals ready for future challenges.
+                        </p>
+                        <div class="global-btn">
+                            <a href="#">Know More <i class="fa fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-2">
+                    <div class="left">
+                        <h6>Experience Student Journey</h6>
+                        <h2>Joyful Learning Life</h2>
+                        <p>
+                            Exploring beyond the classroom plays an essential role in a well-rounded student life. The campus is thoughtfully designed to make the most of its vibrant spaces and modern facilities. Play areas and activity zones provide a safe setting for sports and
+                            recreation, while creative corners offer opportunities for art, innovation, and expression. Every space becomes a place to connect, learn, and grow together.
+                        </p>
+                        <div class="global-btn">
+                            <a href="#">Know More <i class="fa fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="right">
+                        <div class="grid">
+                            <div class="grid-item" data-aos="fade-up" data-aos-delay="0">
+                                <img src="https://placehold.co/400x300/8dc356/ffffff?text=Campus+Life" alt="About Image 1">
+                            </div>
+                            <div class="grid-item" data-aos="fade-up" data-aos-delay="400">
+                                <img src="https://placehold.co/400x300/1a3a5c/ffffff?text=Activities" alt="About Image 2">
+                            </div>
+                        </div>
+                        <div class="grid">
+                            <div class="grid-item" data-aos="fade-up" data-aos-delay="200">
+                                <img src="https://placehold.co/400x300/2a4a6c/ffffff?text=Learning" alt="About Image 3">
+                            </div>
+                            <div class="grid-item" data-aos="fade-up" data-aos-delay="600">
+                                <img src="https://placehold.co/400x300/8dc356/ffffff?text=Joy" alt="About Image 4">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== SSLC TOPPERS ==================== -->
+    <div class="heading" data-aos="fade-down">
+        <h2>SSLC 2025-26 BATCH TOPPERS</h2>
+    </div>
+    <div class="header">
+        <div class="topper" data-aos="zoom-in" data-aos-delay="100">
+            <img src="images/child.jfif" title="Kamlesh Jain">
+            <h3>Kamlesh Jain</h3>
+        </div>
+        <div class="topper" data-aos="zoom-in" data-aos-delay="200">
+            <img src="images/child.jfif" title="Raghuvir Singh">
+            <h3>Raghuvir Singh</h3>
+        </div>
+        <div class="topper" data-aos="zoom-in" data-aos-delay="300">
+            <img src="images/child.jfif" title="Kaushal Pandey">
+            <h3>Kaushal Pandey</h3>
+        </div>
+    </div>
+
+    <!-- Student Scroll -->
+    <div class="scroll-container">
+        <button class="scroll-btn left" onclick="scrollCardsLeft()">❮</button>
+        <div class="student-scroll-wrapper" id="scrollBox">
+            <div class="student-scroll-track" id="track">
+                <div class="student-card" data-aos="fade-up" data-aos-delay="100">
+                    <img src="https://placehold.co/70x70/8dc356/ffffff?text=H" title="Harshala B N">
+                    <h3>Harshala B N</h3><p>81.92%</p>
+                </div>
+                <div class="student-card" data-aos="fade-up" data-aos-delay="200">
+                    <img src="https://placehold.co/70x70/1a3a5c/ffffff?text=B" title="Bindushree K">
+                    <h3>Bindushree K</h3><p>78.56%</p>
+                </div>
+                <div class="student-card" data-aos="fade-up" data-aos-delay="300">
+                    <img src="https://placehold.co/70x70/2a4a6c/ffffff?text=K" title="Kushal R">
+                    <h3>Kushal R</h3><p>78.24%</p>
+                </div>
+                <div class="student-card" data-aos="fade-up" data-aos-delay="400">
+                    <img src="https://placehold.co/70x70/8dc356/ffffff?text=N" title="Nuthan V">
+                    <h3>Nuthan V</h3><p>75.84%</p>
+                </div>
+                <div class="student-card" data-aos="fade-up" data-aos-delay="500">
+                    <img src="https://placehold.co/70x70/1a3a5c/ffffff?text=H" title="Hemanth Gowda C K">
+                    <h3>Hemanth Gowda C K</h3><p>75.36%</p>
+                </div>
+                <div class="student-card" data-aos="fade-up" data-aos-delay="600">
+                    <img src="https://placehold.co/70x70/2a4a6c/ffffff?text=K" title="Kusumesh R">
+                    <h3>Kusumesh R</h3><p>73.92%</p>
+                </div>
+                <div class="student-card" data-aos="fade-up" data-aos-delay="700">
+                    <img src="https://placehold.co/70x70/8dc356/ffffff?text=R" title="Rohan U N">
+                    <h3>Rohan U N</h3><p>69.12%</p>
+                </div>
+            </div>
+        </div>
+        <button class="scroll-btn right" onclick="scrollCardsRight()">❯</button>
+    </div>
+
+    <!-- ==================== ACADEMICS ==================== -->
+    <section class="academics">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="acadmemics-title">
+                    <h3>Academics We Offer</h3>
+                </div>
+                <div class="grid">
+                    <div class="div">
+                        <div class="icon">
+                            <svg class="shape-one" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M30 0H0C16.5684 0 30 13.4314 30 30V0Z" fill="#8dc356"></path>
+                            </svg>
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 24 24' fill='%231a3a5c'%3E%3Cpath d='M12 3L1 9l4 2.18v6L12 21l7-3.82v-6l2-1.09V17h2V9L12 3zm0 4.18L19.09 11 12 14.82 4.91 11 12 7.18z'/%3E%3C/svg%3E">
+                            <svg class="shape-two" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M0 0H30C13.4316 0 0 13.4314 0 30V0Z" fill="#8dc356"></path>
+                            </svg>
+                        </div>
+                        <div class="image"><img src="https://placehold.co/400x200/1a3a5c/ffffff?text=Montessori" alt="Montessori"></div>
+                        <div class="cnt">
+                            <h2>Montessori</h2>
+                            <p>A nurturing foundation program focusing on early learning, creativity, social skills, and holistic development through engaging activities and guided exploration every single day.</p>
+                            <div class="global-btn"><a href="#">Know More <i class="fa fa-arrow-right"></i></a></div>
+                        </div>
+                    </div>
+                    <div class="div">
+                        <div class="icon">
+                            <svg class="shape-one" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M30 0H0C16.5684 0 30 13.4314 30 30V0Z" fill="#8dc356"></path>
+                            </svg>
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 24 24' fill='%231a3a5c'%3E%3Cpath d='M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z'/%3E%3C/svg%3E">
+                            <svg class="shape-two" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M0 0H30C13.4316 0 0 13.4314 0 30V0Z" fill="#8dc356"></path>
+                            </svg>
+                        </div>
+                        <div class="image"><img src="https://placehold.co/400x200/2a4a6c/ffffff?text=Lower+Primary" alt="Lower Primary"></div>
+                        <div class="cnt">
+                            <h2>Lower Primary</h2>
+                            <p>Building strong academic basics with interactive learning, encouraging curiosity, creativity, and confidence while developing essential literacy, numeracy, and communication skills.</p>
+                            <div class="global-btn"><a href="#">Know More <i class="fa fa-arrow-right"></i></a></div>
+                        </div>
+                    </div>
+                    <div class="div">
+                        <div class="icon">
+                            <svg class="shape-one" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M30 0H0C16.5684 0 30 13.4314 30 30V0Z" fill="#8dc356"></path>
+                            </svg>
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 24 24' fill='%231a3a5c'%3E%3Ccircle cx='12' cy='12' r='10' fill='none' stroke='%231a3a5c' stroke-width='2'/%3E%3Cpath d='M12 6v6l4 2'/%3E%3C/svg%3E">
+                            <svg class="shape-two" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M0 0H30C13.4316 0 0 13.4314 0 30V0Z" fill="#8dc356"></path>
+                            </svg>
+                        </div>
+                        <div class="image"><img src="https://placehold.co/400x200/0f2640/ffffff?text=Higher+Primary" alt="Higher Primary"></div>
+                        <div class="cnt">
+                            <h2>Higher Primary</h2>
+                            <p>Building strong academic basics with interactive learning, encouraging curiosity, creativity, and confidence while developing essential literacy, numeracy, and communication skills.</p>
+                            <div class="global-btn"><a href="#">Know More <i class="fa fa-arrow-right"></i></a></div>
+                        </div>
+                    </div>
+                    <div class="div">
+                        <div class="icon">
+                            <svg class="shape-one" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M30 0H0C16.5684 0 30 13.4314 30 30V0Z" fill="#8dc356"></path>
+                            </svg>
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 24 24' fill='%231a3a5c'%3E%3Crect x='3' y='3' width='18' height='18' rx='2' fill='none' stroke='%231a3a5c' stroke-width='2'/%3E%3Cpath d='M8 7h8M8 11h8M8 15h5'/%3E%3C/svg%3E">
+                            <svg class="shape-two" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M0 0H30C13.4316 0 0 13.4314 0 30V0Z" fill="#8dc356"></path>
+                            </svg>
+                        </div>
+                        <div class="image"><img src="https://placehold.co/400x200/1a3a5c/ffffff?text=High+School" alt="High School"></div>
+                        <div class="cnt">
+                            <h2>High School</h2>
+                            <p>Preparing students for academic excellence with focused learning, critical thinking, and discipline while guiding them towards successful board examinations and future goals.</p>
+                            <div class="global-btn"><a href="#">Know More <i class="fa fa-arrow-right"></i></a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== NEWS & EVENTS ==================== -->
+    <section class="news-and-events">
+        <div class="container-fluid">
+            <div class="row">
+                <h2>News <span>+</span> Events</h2>
+                <div class="left">
+                    <div class="tab-content" id="news">
+                        <div class="news-marquee">
+                            <div class="news-track" id="newsTrack">
+                                <a href="#" style="text-decoration:none;color:inherit;">
+                                    <div class="news-list">
+                                        <div class="date-tab">
+                                            <div class="date"><h3>05<sup>th</sup></h3></div>
+                                            <div class="month-year"><h5>June<br>2026</h5></div>
+                                        </div>
+                                        <div class="new-name"><p>Environment Day Celebration</p></div>
+                                    </div>
+                                </a>
+                                <a href="#" style="text-decoration:none;color:inherit;">
+                                    <div class="news-list">
+                                        <div class="date-tab">
+                                            <div class="date"><h3>18<sup>th</sup></h3></div>
+                                            <div class="month-year"><h5>May<br>2026</h5></div>
+                                        </div>
+                                        <div class="new-name"><p>School Re-Opening Day</p></div>
+                                    </div>
+                                </a>
+                                <a href="#" style="text-decoration:none;color:inherit;">
+                                    <div class="news-list">
+                                        <div class="date-tab">
+                                            <div class="date"><h3>07<sup>th</sup></h3></div>
+                                            <div class="month-year"><h5>July<br>2025</h5></div>
+                                        </div>
+                                        <div class="new-name"><p>School Ranked Among Top Institutions in City</p></div>
+                                    </div>
+                                </a>
+                                <a href="#" style="text-decoration:none;color:inherit;">
+                                    <div class="news-list">
+                                        <div class="date-tab">
+                                            <div class="date"><h3>08<sup>th</sup></h3></div>
+                                            <div class="month-year"><h5>July<br>2025</h5></div>
+                                        </div>
+                                        <div class="new-name"><p>New Smart Classrooms Introduced</p></div>
+                                    </div>
+                                </a>
+                                <a href="#" style="text-decoration:none;color:inherit;">
+                                    <div class="news-list">
+                                        <div class="date-tab">
+                                            <div class="date"><h3>09<sup>th</sup></h3></div>
+                                            <div class="month-year"><h5>July<br>2025</h5></div>
+                                        </div>
+                                        <div class="new-name"><p>Students Win National Science Award</p></div>
+                                    </div>
+                                </a>
+                                <a href="#" style="text-decoration:none;color:inherit;">
+                                    <div class="news-list">
+                                        <div class="date-tab">
+                                            <div class="date"><h3>10<sup>th</sup></h3></div>
+                                            <div class="month-year"><h5>July<br>2025</h5></div>
+                                        </div>
+                                        <div class="new-name"><p>New Sports Facilities Launched</p></div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="right">
+                    <div class="events-main">
+                        <div id="eventsCarousel" class="owl-carousel owl-theme">
+                            <div class="item">
+                                <div class="cs-image">
+                                    <img src="https://placehold.co/600x370/1a3a5c/ffffff?text=Environment+Day" alt="Environment Day">
+                                    <div class="event-cnt">
+                                        <div class="text">
+                                            <h3>Environment Day Celebration</h3>
+                                            <div class="hover-text"><p>World Environment Day was celebrated with enthusiasm and awareness activities.</p></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="cs-image">
+                                    <img src="https://placehold.co/600x370/2a4a6c/ffffff?text=Re-Opening+Day" alt="Re-Opening Day">
+                                    <div class="event-cnt">
+                                        <div class="text">
+                                            <h3>School Re-Opening Day</h3>
+                                            <div class="hover-text"><p>Welcome back to a new academic year filled with learning, growth, and success.</p></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="cs-image">
+                                    <img src="https://placehold.co/600x370/0f2640/ffffff?text=Sports+Meet" alt="Sports Meet">
+                                    <div class="event-cnt">
+                                        <div class="text">
+                                            <h3>Sports Meets</h3>
+                                            <div class="hover-text"><p>Annual events featuring track and field competitions, team sports, and physical displays.</p></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="cs-image">
+                                    <img src="https://placehold.co/600x370/1a3a5c/ffffff?text=Science+Fair" alt="Science Fair">
+                                    <div class="event-cnt">
+                                        <div class="text">
+                                            <h3>Science Fairs</h3>
+                                            <div class="hover-text"><p>Exhibitions where students present original research, experiments, or models they've built.</p></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="cs-image">
+                                    <img src="https://placehold.co/600x370/2a4a6c/ffffff?text=Cultural+Festival" alt="Cultural Festival">
+                                    <div class="event-cnt">
+                                        <div class="text">
+                                            <h3>Cultural Festivals</h3>
+                                            <div class="hover-text"><p>Programs including music, dance, drama, and art to celebrate heritage and creativity.</p></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="cs-image">
+                                    <img src="https://placehold.co/600x370/0f2640/ffffff?text=Workshops+&+Seminars" alt="Workshops">
+                                    <div class="event-cnt">
+                                        <div class="text">
+                                            <h3>Workshops & Seminars</h3>
+                                            <div class="hover-text"><p>Sessions on specific skills like coding, public speaking, or career guidance.</p></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="cs-image">
+                                    <img src="https://placehold.co/600x370/1a3a5c/ffffff?text=Field+Trips" alt="Field Trips">
+                                    <div class="event-cnt">
+                                        <div class="text">
+                                            <h3>Field Trips</h3>
+                                            <div class="hover-text"><p>Educational visits to museums, historical sites, or nature parks to learn through experience.</p></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== CAMPUS ==================== -->
+    <section class="campus">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="left">
+                    <div class="main">
+                        <h4><span>Campus Life @</span>Public School</h4>
+                        <div class="grid">
+                            <div class="div">
+                                <div class="d-div"><div class="image"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='50' height='50' viewBox='0 0 24 24' fill='%238dc356'%3E%3Cpath d='M12 3L1 9l11 6 9-4.91V17h2V9L12 3z'/%3E%3C/svg%3E" alt="icon"></div></div>
+                                <div class="d-div"><h3>A joyful environment fostering creativity, curiosity, and excellence.</h3></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="right">
+                    <img src="images/child.jfif" class="campus-student" alt="Student">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Ccircle cx='60' cy='60' r='55' fill='none' stroke='%238dc356' stroke-width='2' opacity='0.3'/%3E%3Ccircle cx='60' cy='60' r='35' fill='none' stroke='%238dc356' stroke-width='2' opacity='0.4'/%3E%3C/svg%3E" class="campus-shape" alt="shape">
+                    <div class="campus-main">
+                        <div id="campusCarousel" class="owl-carousel owl-theme">
+                            <div class="item">
+                                <div class="seltext">
+                                    <div class="cnt">
+                                        <div class="line"></div>
+                                        <div class="content">
+                                            <div class="image"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='55' height='55' viewBox='0 0 24 24' fill='%238dc356'%3E%3Cpath d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z'/%3E%3C/svg%3E" alt="icon"></div>
+                                            <div class="text">
+                                                <h3>Day Care</h3>
+                                                <p>Our day care is designed to provide a safe and nurturing environment, equipped with engaging learning tools, encouraging social interaction, creativity, and emotional growth.</p>
+                                                <div class="global-btn"><a href="#">Know More <i class="fa fa-arrow-right"></i></a></div>
+                                            </div>
+                                            <div class="circle">
+                                                <svg viewBox="30 30 140 140"><path fill="#8CC350" opacity=".2" d="M170 100c0 38.66-31.34 70-70 70s-70-31.34-70-70 31.34-70 70-70 70 31.34 70 70z"/><path fill="#8CC350" opacity=".5" d="M150 100c0 27.614-22.386 50-50 50s-50-22.386-50-50 22.386-50 50-50 50 22.386 50 50z"/><path fill="#8CC350" d="M124.942 93.013c3.86 13.773-4.177 28.068-17.95 31.928-13.773 3.86-28.069-4.176-31.929-17.95-3.86-13.773 4.177-28.068 17.95-31.928 13.773-3.86 28.068 4.176 31.929 17.95z"/></svg>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="seltext">
+                                    <div class="cnt">
+                                        <div class="line"></div>
+                                        <div class="content">
+                                            <div class="image"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='55' height='55' viewBox='0 0 24 24' fill='%238dc356'%3E%3Crect x='3' y='3' width='18' height='18' rx='2' fill='none' stroke='%238dc356' stroke-width='2'/%3E%3Cpath d='M8 7h8M8 11h8M8 15h5'/%3E%3C/svg%3E" alt="icon"></div>
+                                            <div class="text">
+                                                <h3>Classroom</h3>
+                                                <p>Our classrooms are designed to create an interactive and comfortable learning environment, equipped with modern teaching aids, encouraging student participation.</p>
+                                                <div class="global-btn"><a href="#">Know More <i class="fa fa-arrow-right"></i></a></div>
+                                            </div>
+                                            <div class="circle">
+                                                <svg viewBox="30 30 140 140"><path fill="#8CC350" opacity=".2" d="M170 100c0 38.66-31.34 70-70 70s-70-31.34-70-70 31.34-70 70-70 70 31.34 70 70z"/><path fill="#8CC350" opacity=".5" d="M150 100c0 27.614-22.386 50-50 50s-50-22.386-50-50 22.386-50 50-50 50 22.386 50 50z"/><path fill="#8CC350" d="M124.942 93.013c3.86 13.773-4.177 28.068-17.95 31.928-13.773 3.86-28.069-4.176-31.929-17.95-3.86-13.773 4.177-28.068 17.95-31.928 13.773-3.86 28.068 4.176 31.929 17.95z"/></svg>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="seltext">
+                                    <div class="cnt">
+                                        <div class="line"></div>
+                                        <div class="content">
+                                            <div class="image"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='55' height='55' viewBox='0 0 24 24' fill='%238dc356'%3E%3Cpath d='M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 3c1.93 0 3.5 1.57 3.5 3.5S13.93 13 12 13s-3.5-1.57-3.5-3.5S10.07 6 12 6zm7 13H5v-.23c0-.62.28-1.2.76-1.58C7.47 15.82 9.64 15 12 15s4.53.82 6.24 2.19c.48.38.76.96.76 1.58V19z'/%3E%3C/svg%3E" alt="icon"></div>
+                                            <div class="text">
+                                                <h3>Labs</h3>
+                                                <p>Our laboratories are designed to provide practical and immersive learning experiences, equipped with advanced instruments and safety measures.</p>
+                                                <div class="global-btn"><a href="#">Know More <i class="fa fa-arrow-right"></i></a></div>
+                                            </div>
+                                            <div class="circle">
+                                                <svg viewBox="30 30 140 140"><path fill="#8CC350" opacity=".2" d="M170 100c0 38.66-31.34 70-70 70s-70-31.34-70-70 31.34-70 70-70 70 31.34 70 70z"/><path fill="#8CC350" opacity=".5" d="M150 100c0 27.614-22.386 50-50 50s-50-22.386-50-50 22.386-50 50-50 50 22.386 50 50z"/><path fill="#8CC350" d="M124.942 93.013c3.86 13.773-4.177 28.068-17.95 31.928-13.773 3.86-28.069-4.176-31.929-17.95-3.86-13.773 4.177-28.068 17.95-31.928 13.773-3.86 28.068 4.176 31.929 17.95z"/></svg>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="seltext">
+                                    <div class="cnt">
+                                        <div class="line"></div>
+                                        <div class="content">
+                                            <div class="image"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='55' height='55' viewBox='0 0 24 24' fill='%238dc356'%3E%3Ccircle cx='12' cy='12' r='10' fill='none' stroke='%238dc356' stroke-width='2'/%3E%3Cpath d='M12 6v6l4 2'/%3E%3C/svg%3E" alt="icon"></div>
+                                            <div class="text">
+                                                <h3>Sports</h3>
+                                                <p>Our sports facilities are designed to promote physical fitness and active lifestyles, equipped with quality infrastructure, encouraging teamwork and discipline.</p>
+                                                <div class="global-btn"><a href="#">Know More <i class="fa fa-arrow-right"></i></a></div>
+                                            </div>
+                                            <div class="circle">
+                                                <svg viewBox="30 30 140 140"><path fill="#8CC350" opacity=".2" d="M170 100c0 38.66-31.34 70-70 70s-70-31.34-70-70 31.34-70 70-70 70 31.34 70 70z"/><path fill="#8CC350" opacity=".5" d="M150 100c0 27.614-22.386 50-50 50s-50-22.386-50-50 22.386-50 50-50 50 22.386 50 50z"/><path fill="#8CC350" d="M124.942 93.013c3.86 13.773-4.177 28.068-17.95 31.928-13.773 3.86-28.069-4.176-31.929-17.95-3.86-13.773 4.177-28.068 17.95-31.928 13.773-3.86 28.068 4.176 31.929 17.95z"/></svg>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="seltext">
+                                    <div class="cnt">
+                                        <div class="line"></div>
+                                        <div class="content">
+                                            <div class="image"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='55' height='55' viewBox='0 0 24 24' fill='%238dc356'%3E%3Crect x='2' y='3' width='20' height='17' rx='1' fill='none' stroke='%238dc356' stroke-width='2'/%3E%3Cpath d='M6 7h12M6 11h12M6 15h8'/%3E%3C/svg%3E" alt="icon"></div>
+                                            <div class="text">
+                                                <h3>Library</h3>
+                                                <p>Our library is designed to create a peaceful and resourceful learning environment, equipped with diverse books and digital materials, encouraging reading habits.</p>
+                                                <div class="global-btn"><a href="#">Know More <i class="fa fa-arrow-right"></i></a></div>
+                                            </div>
+                                            <div class="circle">
+                                                <svg viewBox="30 30 140 140"><path fill="#8CC350" opacity=".2" d="M170 100c0 38.66-31.34 70-70 70s-70-31.34-70-70 31.34-70 70-70 70 31.34 70 70z"/><path fill="#8CC350" opacity=".5" d="M150 100c0 27.614-22.386 50-50 50s-50-22.386-50-50 22.386-50 50-50 50 22.386 50 50z"/><path fill="#8CC350" d="M124.942 93.013c3.86 13.773-4.177 28.068-17.95 31.928-13.773 3.86-28.069-4.176-31.929-17.95-3.86-13.773 4.177-28.068 17.95-31.928 13.773-3.86 28.068 4.176 31.929 17.95z"/></svg>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="seltext">
+                                    <div class="cnt">
+                                        <div class="line"></div>
+                                        <div class="content">
+                                            <div class="image"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='55' height='55' viewBox='0 0 24 24' fill='%238dc356'%3E%3Cpath d='M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z'/%3E%3C/svg%3E" alt="icon"></div>
+                                            <div class="text">
+                                                <h3>Transport</h3>
+                                                <p>Our transport system is designed to ensure safe and convenient travel for students, equipped with well-maintained vehicles and safety features.</p>
+                                                <div class="global-btn"><a href="#">Know More <i class="fa fa-arrow-right"></i></a></div>
+                                            </div>
+                                            <div class="circle">
+                                                <svg viewBox="30 30 140 140"><path fill="#8CC350" opacity=".2" d="M170 100c0 38.66-31.34 70-70 70s-70-31.34-70-70 31.34-70 70-70 70 31.34 70 70z"/><path fill="#8CC350" opacity=".5" d="M150 100c0 27.614-22.386 50-50 50s-50-22.386-50-50 22.386-50 50-50 50 22.386 50 50z"/><path fill="#8CC350" d="M124.942 93.013c3.86 13.773-4.177 28.068-17.95 31.928-13.773 3.86-28.069-4.176-31.929-17.95-3.86-13.773 4.177-28.068 17.95-31.928 13.773-3.86 28.068 4.176 31.929 17.95z"/></svg>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="seltext">
+                                    <div class="cnt">
+                                        <div class="line"></div>
+                                        <div class="content">
+                                            <div class="image"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='55' height='55' viewBox='0 0 24 24' fill='%238dc356'%3E%3Ccircle cx='12' cy='12' r='10' fill='none' stroke='%238dc356' stroke-width='2'/%3E%3Ccircle cx='12' cy='12' r='4' fill='%238dc356'/%3E%3C/svg%3E" alt="icon"></div>
+                                            <div class="text">
+                                                <h3>CCTV Surveillance</h3>
+                                                <p>Our campus is designed with advanced CCTV surveillance systems, equipped with continuous monitoring technology, encouraging safety and discipline.</p>
+                                                <div class="global-btn"><a href="#">Know More <i class="fa fa-arrow-right"></i></a></div>
+                                            </div>
+                                            <div class="circle">
+                                                <svg viewBox="30 30 140 140"><path fill="#8CC350" opacity=".2" d="M170 100c0 38.66-31.34 70-70 70s-70-31.34-70-70 31.34-70 70-70 70 31.34 70 70z"/><path fill="#8CC350" opacity=".5" d="M150 100c0 27.614-22.386 50-50 50s-50-22.386-50-50 22.386-50 50-50 50 22.386 50 50z"/><path fill="#8CC350" d="M124.942 93.013c3.86 13.773-4.177 28.068-17.95 31.928-13.773 3.86-28.069-4.176-31.929-17.95-3.86-13.773 4.177-28.068 17.95-31.928 13.773-3.86 28.068 4.176 31.929 17.95z"/></svg>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== GALLERY ==================== -->
+    <div class="gallery-bg"  id="gallery">
+        <h6>Gallery</h6>
+        <h2>Cherished School Memories</h2>
+        <div class="gallery-shapes">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'%3E%3Ccircle cx='30' cy='30' r='28' fill='none' stroke='%238dc356' stroke-width='3' opacity='0.4'/%3E%3C/svg%3E" class="gallery-shape-1" alt="">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='50' height='50' viewBox='0 0 50 50'%3E%3Crect x='5' y='5' width='40' height='40' rx='8' fill='none' stroke='%238dc356' stroke-width='3' opacity='0.4'/%3E%3C/svg%3E" class="gallery-shape-2" alt="">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Cpolygon points='20,3 37,34 3,34' fill='none' stroke='%238dc356' stroke-width='3' opacity='0.4'/%3E%3C/svg%3E" class="gallery-shape-3" alt="">
+        </div>
+        <div class="nx-main">
+            <div class="nx-col">
+                <div class="nx-item img" data-type="image" data-src="images/school.jpg">
+                    <img src="images/school.jpg" alt="Gallery">
+                </div>
+                <div class="nx-item vid" data-type="video" data-src="https://www.w3schools.com/html/mov_bbb.mp4">
+                    <img src="images/video.jfif" alt="Video">
+                    <span class="nx-play"></span>
+                </div>
+            </div>
+            <div class="nx-col nx-offset-1">
+                <div class="nx-item vid" data-type="video" data-src="https://www.w3schools.com/html/mov_bbb.mp4">
+                    <img src="images/video.jfif" alt="Video">
+                    <span class="nx-play"></span>
+                </div>
+                <div class="nx-item img" data-type="image" data-src="images/school.jpg">
+                    <img src="images/school.jpg" alt="Gallery">
+                </div>
+            </div>
+            <div class="nx-col nx-offset-2">
+                <div class="nx-item vid" data-type="video" data-src="https://www.w3schools.com/html/mov_bbb.mp4">
+                    <img src="images/video.jfif" alt="Video">
+                    <span class="nx-play"></span>
+                </div>
+                <div class="nx-item vid" data-type="video" data-src="https://www.w3schools.com/html/mov_bbb.mp4">
+                    <img src="images/video.jfif" alt="Video">
+                    <span class="nx-play"></span>
+                </div>
+            </div>
+            <div class="nx-col nx-offset-1">
+                <div class="nx-item vid" data-type="video" data-src="https://www.w3schools.com/html/mov_bbb.mp4">
+                    <img src="images/video.jfif" alt="Video">
+                    <span class="nx-play"></span>
+                </div>
+                <div class="nx-item img" data-type="image" data-src="images/school.jpg">
+                    <img src="images/school.jpg" alt="Gallery">
+                </div>
+            </div>
+            <div class="nx-col">
+                <div class="nx-item img" data-type="image" data-src="images/school.jpg">
+                    <img src="images/school.jpg" alt="Gallery">
+                </div>
+                <div class="nx-item vid" data-type="video" data-src="https://www.w3schools.com/html/mov_bbb.mp4">
+                    <img src="images/video.jfif" alt="Video">
+                    <span class="nx-play"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Gallery Modal -->
+    <div class="nx-modal">
+        <span class="nx-close">×</span>
+        <span class="nx-prev">❮</span>
+        <span class="nx-next">❯</span>
+        <div class="nx-content"></div>
+    </div>
+
+    <!-- ==================== ADMISSION ==================== -->
+    <section class="admission">
+        <div class="admission-shape">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'%3E%3Ccircle cx='100' cy='100' r='90' fill='none' stroke='white' stroke-width='3' opacity='0.5'/%3E%3Ccircle cx='100' cy='100' r='60' fill='none' stroke='white' stroke-width='2' opacity='0.3'/%3E%3C/svg%3E" alt="">
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="main">
+                    <div class="cnt-grid">
+                        <div class="cnt-div">
+                            <div class="text">
+                                <div class="line"></div>
+                                <h2>Admissions Open for 2026 - 27<br>Join Us!</h2>
+                                <p>Discover learning, growth, and success in our nurturing environment</p>
+                                <div class="global-btn">
+                                    <a href="#">Book your Admissions <i class="fa fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cnt-div">
+                            <img src="https://placehold.co/350x250/8dc356/ffffff?text=Admissions+Open" alt="Admission">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="footer">
+        <div class="animations-02">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'%3E%3Crect x='20' y='40' width='160' height='120' rx='10' fill='none' stroke='white' stroke-width='2' opacity='0.5'/%3E%3Cpolygon points='100,10 160,40 40,40' fill='none' stroke='white' stroke-width='2' opacity='0.5'/%3E%3C/svg%3E" alt="">
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="footer-top">
+                    <div class="footer-div">
+                        <h2>Quick Links</h2>
+                        <ul>
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">Academics</a></li>
+                            <li><a href="#">Campus</a></li>
+                            <li><a href="#">Student Life</a></li>
+                            <li><a href="#">Admissions</a></li>
+                            <li><a href="#">Gallery</a></li>
+                            <li><a href="#">Careers</a></li>
+                            <li><a href="#">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-div" id="contact">
+                        <h2>Contact Us</h2>
+                        <div class="footer-adress">
+                            <div class="adrres-d">
+                                <h4><i class="fa fa-map-marker"></i> ABC Public School</h4>
+                                <p>56, Gandhi Nagar, Vashi, Mumbai- 400708</p>
+                            </div>
+                            <div class="adrres-d">
+                                <h3>Contact Number</h3>
+                                <p>
+                                    📞 <a href="tel:+919876543210">+91 98765 43210</a> /
+                                    <a href="tel:+919876543210">+91 98765 43210</a>
+                                </p>
+                            </div>
+                            <div class="adrres-d">
+                                <h3>Email Id</h3>
+                                <p>✉️ <a href="mailto:email@gmail.com">email@gmail.com</a></p>
+                                <h3>School Timings :</h3>
+                                <p class="time">🕐 <span>9:30 AM - 4:30 PM</span></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="footer-div">
+                        <div class="soc">
+                            <h3>Connect With Us</h3>
+                            <ul>
+                                <li>
+                                    <a href="#"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='34' height='34' viewBox='0 0 24 24' fill='%233b5998'%3E%3Crect width='24' height='24' rx='12' fill='%233b5998'/%3E%3Ctext x='12' y='17' text-anchor='middle' fill='white' font-size='14' font-weight='bold'%3Ef%3C/text%3E%3C/svg%3E" alt="Facebook"></a>
+                                    <a href="#"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='34' height='34' viewBox='0 0 24 24' fill='%23E4405F'%3E%3Crect width='24' height='24' rx='12' fill='%23E4405F'/%3E%3Ctext x='12' y='17' text-anchor='middle' fill='white' font-size='14' font-weight='bold'%3E📷%3C/text%3E%3C/svg%3E" alt="Instagram"></a>
+                                    <a href="#"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='34' height='34' viewBox='0 0 24 24' fill='%231DA1F2'%3E%3Crect width='24' height='24' rx='12' fill='%231DA1F2'/%3E%3Ctext x='12' y='17' text-anchor='middle' fill='white' font-size='14' font-weight='bold'%3E𝕏%3C/text%3E%3C/svg%3E" alt="Twitter"></a>
+                                    <a href="#"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='34' height='34' viewBox='0 0 24 24' fill='%230A66C2'%3E%3Crect width='24' height='24' rx='12' fill='%230A66C2'/%3E%3Ctext x='12' y='17' text-anchor='middle' fill='white' font-size='14' font-weight='bold'%3Ein%3C/text%3E%3C/svg%3E" alt="LinkedIn"></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="clear"></div>
+                <div class="footer-bottom">
+                    <p>© All Rights Reserved to <span>ABC Public School.</span> Site By <a href="#">Intelliaug</a></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==================== WHATSAPP ICON ==================== -->
+    <a href="https://wa.me/+919876543210" target="_blank" class="waicon">
+        <i class="fa fa-whatsapp" title="Whatsapp"></i>
+    </a>
+
+    <!-- ==================== POPUP ==================== -->
+    <div class="popup-overlay" id="popup" style="display:flex;">
+        <div class="popup-box">
+            <button class="popup-close" onclick="closePopup()">×</button>
+            <img src="images/Admission.png" alt="Popup Banner">
+        </div>
+    </div>
+
+    <!-- ==================== SCRIPTS ==================== -->
+    <!-- jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js">
+    </script>
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js">
+    </script>
+    <!-- AOS JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js">
+    </script>
+    <!-- Owl Carousel JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.js">
+    </script>
+
+    <script>
+        // ===== AOS INIT =====
+        AOS.init({
+            duration: 1000,
+            once: false
+        });
+
+        // ===== MOBILE MENU =====
+        const btn = document.getElementById("mobileMenuBtn");
+        const menu = document.getElementById("mobileMenu");
+        btn.addEventListener("click", () => {
+            btn.classList.toggle("active");
+            menu.classList.toggle("open");
+        });
+        document.querySelectorAll(".m-dropdown .drop-toggle").forEach(t => {
+            t.addEventListener("click", function() {
+                this.parentElement.classList.toggle("open");
+                this.textContent = this.parentElement.classList.contains("open") ? "-" : "+";
+            });
+        });
+        document.querySelectorAll(".sub-drop-toggle").forEach(toggle => {
+            toggle.addEventListener("click", function() {
+                const submenu = this.nextElementSibling;
+                submenu.style.display = submenu.style.display === "block" ? "none" : "block";
+                this.textContent = this.textContent === "+" ? "−" : "+";
+            });
+        });
+
+        function closeMobileMenu() {
+            if (menu.classList.contains("open")) {
+                menu.classList.remove("open");
+                btn.classList.remove("active");
+            }
+        }
+        window.addEventListener("scroll", closeMobileMenu);
+        window.addEventListener("touchmove", closeMobileMenu, { passive: true });
+
+        // ===== DESKTOP DROPDOWN (hover with delay) =====
+        document.querySelectorAll('.elite-header .drop').forEach(item => {
+            let t;
+            item.addEventListener('mouseenter', () => {
+                t = setTimeout(() => item.classList.add('open'), 100);
+            });
+            item.addEventListener('mouseleave', () => {
+                clearTimeout(t);
+                item.classList.remove('open');
+            });
+        });
+
+        // ===== BANNER CAROUSEL =====
+        const myCarousel = new bootstrap.Carousel('#carouselExampleControls', {
+            interval: 3000,
+            ride: 'carousel',
+            pause: false,
+            wrap: true
+        });
+
+        // ===== NEWS MARQUEE =====
+        const newsTrack = document.getElementById("newsTrack");
+        newsTrack.innerHTML += newsTrack.innerHTML;
+        let newsPos = 0;
+        const newsSpeed = 0.5;
+        let newsPaused = false;
+
+        function scrollNews() {
+            if (!newsPaused) {
+                newsPos += newsSpeed;
+                if (newsPos >= newsTrack.scrollHeight / 2) {
+                    newsPos = 0;
+                }
+                newsTrack.style.transform = `translateY(-${newsPos}px)`;
+            }
+            requestAnimationFrame(scrollNews);
+        }
+        scrollNews();
+        const newsMarquee = document.querySelector(".news-marquee");
+        newsMarquee.addEventListener("mouseenter", () => newsPaused = true);
+        newsMarquee.addEventListener("mouseleave", () => newsPaused = false);
+
+        // ===== EVENTS OWL CAROUSEL =====
+        $("#eventsCarousel").owlCarousel({
+            singleItem: true,
+            autoPlay: 4000,
+            navigation: true,
+            navigationText: [
+                "<i class='fa fa-chevron-left'></i>",
+                "<i class='fa fa-chevron-right'></i>"
+            ],
+            pagination: false,
+            slideSpeed: 600
+        });
+
+        // ===== CAMPUS OWL CAROUSEL =====
+        $("#campusCarousel").owlCarousel({
+            singleItem: true,
+            autoPlay: 5000,
+            navigation: true,
+            navigationText: [
+                "<i class='fa fa-chevron-left'></i>",
+                "<i class='fa fa-chevron-right'></i>"
+            ],
+            pagination: false,
+            slideSpeed: 600
+        });
+
+        // ===== GALLERY MODAL =====
+        (function() {
+            const items = document.querySelectorAll(".nx-item");
+            const modal = document.querySelector(".nx-modal");
+            const content = document.querySelector(".nx-content");
+            let current = 0;
+
+            function show(i) {
+                const el = items[i];
+                const type = el.dataset.type;
+                const src = el.dataset.src;
+                content.innerHTML = "";
+                if (type === "image") {
+                    content.innerHTML = `<img src="${src}" alt="Gallery Image">`;
+                } else {
+                    content.innerHTML =
+                        `<video src="${src}" controls autoplay style="max-width:100%;max-height:85vh;"></video>`;
+                }
+                modal.classList.add("active");
+                current = i;
+            }
+            items.forEach((el, i) => el.onclick = () => show(i));
+            document.querySelector(".nx-close").onclick = () => {
+                modal.classList.remove("active");
+                content.innerHTML = "";
+            };
+            document.querySelector(".nx-prev").onclick = () => {
+                show((current - 1 + items.length) % items.length);
+            };
+            document.querySelector(".nx-next").onclick = () => {
+                show((current + 1) % items.length);
+            };
+            modal.addEventListener("click", function(e) {
+                if (e.target === modal) {
+                    modal.classList.remove("active");
+                    content.innerHTML = "";
+                }
+            });
+            document.addEventListener("keydown", function(e) {
+                if (!modal.classList.contains("active")) return;
+                if (e.key === "Escape") {
+                    modal.classList.remove("active");
+                    content.innerHTML = "";
+                }
+                if (e.key === "ArrowLeft") show((current - 1 + items.length) % items.length);
+                if (e.key === "ArrowRight") show((current + 1) % items.length);
+            });
+        })();
+
+        // ===== STUDENT CARDS SCROLL =====
+        const scrollBox = document.getElementById("scrollBox");
+        const track = document.getElementById("track");
+        track.innerHTML += track.innerHTML;
+        let scrollSpeed = 0.6;
+        let scrollPaused = false;
+
+        function autoScroll() {
+            if (!scrollPaused) {
+                scrollBox.scrollLeft += scrollSpeed;
+                if (scrollBox.scrollLeft >= track.scrollWidth / 2) {
+                    scrollBox.scrollLeft = 0;
+                }
+            }
+            requestAnimationFrame(autoScroll);
+        }
+        autoScroll();
+        scrollBox.addEventListener("mouseenter", () => scrollPaused = true);
+        scrollBox.addEventListener("mouseleave", () => scrollPaused = false);
+
+        window.scrollCardsLeft = function() {
+            scrollPaused = true;
+            scrollBox.scrollBy({ left: -300, behavior: "smooth" });
+            setTimeout(() => { scrollPaused = false; }, 1000);
+        };
+        window.scrollCardsRight = function() {
+            scrollPaused = true;
+            scrollBox.scrollBy({ left: 300, behavior: "smooth" });
+            setTimeout(() => { scrollPaused = false; }, 1000);
+        };
+
+        // ===== POPUP =====
+        function closePopup() {
+            document.getElementById("popup").style.display = "none";
+        }
+        // Auto-close popup after 8 seconds
+        setTimeout(() => {
+            const popup = document.getElementById("popup");
+            if (popup && popup.style.display !== "none") {
+                popup.style.display = "none";
+            }
+        }, 8000);
+
+        // ===== SMOOTH SCROLL FOR BANNER BUTTON =====
+        document.querySelector('.banner-btn a').addEventListener('click', function(e) {
+            e.preventDefault();
+            const target = document.querySelector('#down');
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+    </script>
+</body>
+</html>
